@@ -18,6 +18,5 @@ namespace Tests
                 .LinkAddress;
             Assert.AreEqual("https://yandex.ru/", link, "wrong link on first search result");
         }
-
     }
 }

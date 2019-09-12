@@ -13,7 +13,6 @@ namespace Pages
 
         public IWebElement TextInputSearch => this.driver.FindElement(By.CssSelector("input[name='q']"));
 
-
         public GoogleSearchResultPage GoogleIt(string searchString)
         {
             this.TextInputSearch.SendKeys(searchString + Keys.Enter);
