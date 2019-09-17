@@ -7,16 +7,18 @@ namespace Tests
     public class SearchTests : TestsBase
     {
         [Test]
-        public void SearchYandex()
+        [TestCase("yandex.ru")]
+        [TestCase("mail.ru")]
+        public void SearchYandex(string searchString)
         {
             var googlePage = new GoogleHomePage(this.DriverManager.Driver);
             googlePage.Open();
             var link = googlePage
-                .GoogleIt("yandex.ru")
+                .GoogleIt(searchString)
                 .SearchResults
                 .First()
                 .LinkAddress;
-            Assert.AreEqual("https://yandex.ru/", link, "wrong link on first search result");
+            Assert.AreEqual($"https://{searchString}/", link, "wrong link on first search result");
         }
     }
 }
